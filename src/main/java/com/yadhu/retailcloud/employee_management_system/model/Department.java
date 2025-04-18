@@ -5,28 +5,11 @@ import lombok.*;
 
 import java.time.LocalDate;
 import java.util.List;
-<<<<<<< HEAD
-
 @Entity
-@Data
-=======
-@Entity
->>>>>>> dc70465 (completed)
 @AllArgsConstructor
 @NoArgsConstructor
 @Table(name = "departments")
 public class Department {
-<<<<<<< HEAD
-
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
-
-    @Column(nullable = false, unique = true)
-    private String name;
-
-    @Column(nullable = false)
-=======
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "department_id")
@@ -35,7 +18,6 @@ public class Department {
     @Column(nullable = false)
     private String name;
 
->>>>>>> dc70465 (completed)
     private LocalDate creationDate;
 
     public Long getId() {
@@ -80,15 +62,8 @@ public class Department {
 
     @OneToOne
     @JoinColumn(name = "department_head_id")
-<<<<<<< HEAD
-    private Employee departmentHead;
-
-    @OneToMany(mappedBy = "department", cascade = CascadeType.ALL)
-    private List<Employee> employees;
-=======
     private Department departmentHead;
 
     @OneToMany(mappedBy = "department")
     private List<Employee>employees;
->>>>>>> dc70465 (completed)
 }
