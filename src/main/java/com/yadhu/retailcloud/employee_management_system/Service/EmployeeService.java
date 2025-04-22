@@ -45,7 +45,6 @@ public class EmployeeService {
     }
 
     public List<Object[]> lookupNameAndId(boolean lookup) {
-        return lookup ? employeeRepository.findAll()
-                .stream().map(e -> new Object[]{e.getId(), e.getName()}).toList() : List.of();
+        return lookup ? employeeRepository.findIdAndName() : List.of();
     }
 }
